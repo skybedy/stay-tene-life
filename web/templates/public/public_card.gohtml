@@ -1,0 +1,12 @@
+{{ define "public_card.gohtml" }}
+<!doctype html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><meta name='robots' content='noindex,nofollow'><script src='https://cdn.tailwindcss.com'></script><title>{{ .Card.AccommodationName }}</title></head>
+<body class='bg-slate-100 text-slate-900'><main class='max-w-md mx-auto p-4 space-y-4'>
+<section class='bg-white rounded-2xl p-5 shadow'><h1 class='text-2xl font-bold'>{{ .Card.AccommodationName }}</h1><p>{{ .Card.Subtitle }}</p></section>
+<section class='bg-white rounded-2xl p-5 shadow'><h2 class='font-semibold'>Check-in</h2><p>{{ .Card.CheckInAt }}</p><p>Check-out: {{ .Card.CheckOutAt }}</p></section>
+<section class='bg-white rounded-2xl p-5 shadow'><h2 class='font-semibold'>Address</h2><p>{{ .Card.Address }}</p><a class='mt-2 inline-block bg-indigo-600 text-white px-4 py-2 rounded-xl' href='{{ .Card.MapsURL }}'>Open in Maps</a></section>
+<section class='bg-white rounded-2xl p-5 shadow'><h2 class='font-semibold'>Entry instructions</h2><p>{{ .Card.EntryType }}</p><p class='whitespace-pre-wrap'>{{ .Card.EntryInstructions }}</p><p>Code: {{ .Card.KeyboxCode }}</p></section>
+<section class='bg-white rounded-2xl p-5 shadow'><h2 class='font-semibold'>Wi-Fi</h2><p>{{ .Card.WifiSSID }}</p><div class='flex gap-2'><p id='wifiPass'>{{ .Card.WifiPassword }}</p><button data-copy='wifiPass' class='px-3 py-1 bg-slate-200 rounded'>Copy</button></div></section>
+<section class='bg-white rounded-2xl p-5 shadow'><h2 class='font-semibold'>House info</h2><p class='whitespace-pre-wrap'>{{ .Card.HouseInfo }}</p></section>
+<section class='bg-white rounded-2xl p-5 shadow'><h2 class='font-semibold'>Contact</h2><p>{{ .Card.ContactName }}</p><a href='tel:{{ .Card.ContactPhone }}' class='inline-block bg-emerald-600 text-white rounded px-4 py-2'>Call</a> <a href='https://wa.me/{{ .Card.ContactWhatsapp }}' class='inline-block bg-green-500 text-white rounded px-4 py-2'>WhatsApp</a></section>
+</main><script src='/static/js/app.js'></script></body></html>
+{{ end }}
